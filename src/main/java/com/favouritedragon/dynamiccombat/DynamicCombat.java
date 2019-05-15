@@ -5,11 +5,13 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
+import zdoctor.skilltree.api.SkillTreeApi;
 
 
-@Mod(modid = DynamicCombat.MODID, name = DynamicCombat.NAME, version = DynamicCombat.VERSION, dependencies="required-after:dynamicswordskills")
+@Mod(modid = DynamicCombat.MODID, name = DynamicCombat.NAME, version = DynamicCombat.VERSION, dependencies="required-after:dynamicswordskills;required-after:skilltree")
 public class DynamicCombat
 {
     public static final String MODID = "dynamic_combat";
@@ -42,7 +44,7 @@ public class DynamicCombat
     }
 
     @EventHandler
-    public void postInit(FMLInitializationEvent event) {
+    public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
     }
 

@@ -4,6 +4,7 @@ import com.favouritedragon.dynamiccombat.skills.AttackSkill;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import zdoctor.skilltree.api.SkillTreeApi;
 import zdoctor.skilltree.api.enums.SkillFrameType;
@@ -23,15 +24,19 @@ public class UnarmedCombat extends AttackSkill implements ISkillToggle, ISkillTi
 
 	public final SkillAttributeModifier UNARMED_COMBAT;
 	public static final String ATTRIBUTE_NAME = "attackSkill.unarmedCombat";
+	public static final String[] NAME = new String[] { "Unarmed Combat I", "Unarmed Combat II", "Unarmed Combat III", "Unarmed Combat IV" };
+	private static final Item[] ICON = { Items.WOODEN_SWORD, Items.STONE_SWORD, Items.IRON_SWORD, Items.DIAMOND_SWORD};
+	protected static int TIER;
 
 	public UnarmedCombat() {
-		super("UnarmedCombat", Items.WOODEN_SWORD);
+		super(NAME[(TIER = TIER >= NAME.length ? 0 : TIER)], ICON[TIER]);
 		UNARMED_COMBAT = new SkillAttributeModifier(ATTRIBUTE_NAME, 0, 0);
 		setFrameType(SkillFrameType.NORMAL);
 	}
 
 	@Override
 	public void onSkillRePurchase(EntityLivingBase entity) {
+		TIER = SkillTreeApi.getSkillTier(entity, this);
 		removeEntityModifier(entity, this);
 	}
 
@@ -50,8 +55,9 @@ public class UnarmedCombat extends AttackSkill implements ISkillToggle, ISkillTi
 		if (!entity.getEntityAttribute(getAttribute(entity, skill)).hasModifier(getModifier(entity, skill))) {
 			if (entity.getHeldItemMainhand() == ItemStack.EMPTY) {
 				int tier = SkillTreeApi.getSkillTier(entity, skill);
-				SkillAttributeModifier swordProficiency = new SkillAttributeModifier(ATTRIBUTE_NAME, tier, 0);
-				entity.getEntityAttribute(getAttribute(entity, skill)).applyModifier(swordProficiency);
+				TIER = tier;
+				SkillAttributeModifier unarmedCombat = new SkillAttributeModifier(ATTRIBUTE_NAME, tier, 0);
+				entity.getEntityAttribute(getAttribute(entity, skill)).applyModifier(unarmedCombat);
 				entity.getEntityAttribute(getAttribute(entity, skill)).applyModifier(getModifier(entity, skill));
 			}
 		}
@@ -80,6 +86,12 @@ public class UnarmedCombat extends AttackSkill implements ISkillToggle, ISkillTi
 	public SkillAttributeModifier getModifier(EntityLivingBase entity, SkillBase skill) {
 		return UNARMED_COMBAT;
 	}
+
+	@Override
+	public int getMaxTier(EntityLivingBase entity) {
+		return 4;
+	}
+
 
 }
 

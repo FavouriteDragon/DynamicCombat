@@ -12,6 +12,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -52,7 +53,7 @@ public class Flurry extends SkillFists {
 	@Override
 	protected boolean onActivated(World world, EntityPlayer player) {
 		numberOfBlows = 3 + level;
-		blowCoolDown = 6 - level;
+		blowCoolDown = 0;
 		activeTimer = blowCoolDown * numberOfBlows + 2;
 		return isActive();
 	}
@@ -92,8 +93,19 @@ public class Flurry extends SkillFists {
 	public void onUpdate(EntityPlayer player) {
 		super.onUpdate(player);
 		if (isActive()) {
+			if (blowCoolDown == 0) {
+				blowCoolDown = 6 - level;
+			}
 			--activeTimer;
-			List<Entity> e = player.getEntityWorld().getEntitiesWithinAABB();
+			//AxisAlignedBB  hitBox = new AxisAlignedBB(player.posX, player.posY, player.posZ, player.posX)
+			//List<Entity> e = player.getEntityWorld().getEntitiesWithinAABB();
 		}
 	}
+
+	@Override
+	public boolean onRenderTick(EntityPlayer player, float partialTickTime) {
+		return super.onRenderTick(player, partialTickTime);
+	}
+
+
 }

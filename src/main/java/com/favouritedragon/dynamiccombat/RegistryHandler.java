@@ -1,12 +1,23 @@
 package com.favouritedragon.dynamiccombat;
 
+import dynamicswordskills.DynamicSwordSkills;
+import dynamicswordskills.skills.SkillBase;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.passive.EntityBat;
+import net.minecraft.entity.passive.EntityHorse;
+import net.minecraft.entity.passive.EntityOcelot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Mod.EventBusSubscriber(modid = DynamicCombat.MODID)
 public class RegistryHandler {
@@ -30,6 +41,18 @@ public class RegistryHandler {
 		ResourceLocation registryName = new ResourceLocation(DynamicCombat.MODID, name);
 		EntityRegistry.registerModEntity(registryName, entityClass, registryName.toString(), id, DynamicCombat.instance, trackingRange, updateFrequency, sendsVelocityUpdates);
 		EntityRegistry.registerEgg(registryName, eggColour, spotColour);
+	}
+	/** Mapping of mobs to skill orb drops */
+	private static final Map<Class<? extends EntityLivingBase>, ItemStack> dropsList = new HashMap<Class<? extends EntityLivingBase>, ItemStack>();
+
+	/** Adds a mob-class to skill orb mapping */
+	private static void addDrop(Class<? extends EntityLivingBase> mobClass, SkillBase skill) {
+		ItemStack stack = new ItemStack(DynamicSwordSkills.skillOrb, 1, skill.getId());
+		dropsList.put(mobClass, stack);
+	}
+
+	public static void initializeDrops() {
+		addDrop(EntityZombie.class, DynamicSkills.deflect);
 	}
 
 	@SubscribeEvent
@@ -55,6 +78,7 @@ public class RegistryHandler {
 		registerLoot();
 		registerEntities();
 		registerItems();
+		initializeDrops();
 	}
 
 	//Register skills

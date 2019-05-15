@@ -1,5 +1,6 @@
 package com.favouritedragon.dynamiccombat.proxy;
 
+import com.favouritedragon.dynamiccombat.skills.tabs.SkillTreeTabs;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -10,11 +11,12 @@ import zdoctor.skilltree.events.SkillHandlerEvent;
 public class CommonProxy implements IProxy {
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
-
+		SkillTreeTabs.init();
 	}
 
 	@Override
 	public void Init(FMLInitializationEvent event) {
+
 
 	}
 

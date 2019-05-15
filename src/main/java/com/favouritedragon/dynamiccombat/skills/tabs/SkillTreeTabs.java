@@ -7,7 +7,7 @@ import zdoctor.skilltree.tabs.SkillTabs;
 
 public class SkillTreeTabs {
 
-	public static final SkillTabs ATTACK_TAB = new SkillTabs("FistTab", new
+	public static final SkillTabs FIST_TAB = new SkillTabs("FistTab", new
 			FistSkillPage()) {
 
 		@Override
@@ -17,5 +17,6 @@ public class SkillTreeTabs {
 	};
 
 	public static void init() {
+		FIST_TAB.showTab();
 	};
 }

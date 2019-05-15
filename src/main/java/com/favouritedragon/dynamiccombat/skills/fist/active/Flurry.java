@@ -1,23 +1,17 @@
-package com.favouritedragon.dynamiccombat.skills.fist;
+package com.favouritedragon.dynamiccombat.skills.fist.active;
 
+import com.favouritedragon.dynamiccombat.skills.fist.SkillFists;
 import dynamicswordskills.client.DSSKeyHandler;
 import dynamicswordskills.network.PacketDispatcher;
 import dynamicswordskills.network.bidirectional.ActivateSkillPacket;
 import dynamicswordskills.ref.Config;
-import dynamicswordskills.skills.SkillActive;
 import dynamicswordskills.skills.SkillBase;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.List;
 
 public class Flurry extends SkillFists {
 

@@ -1,5 +1,6 @@
-package com.favouritedragon.dynamiccombat.skills.fist;
+package com.favouritedragon.dynamiccombat.skills.fist.active;
 
+import com.favouritedragon.dynamiccombat.skills.fist.SkillFists;
 import dynamicswordskills.client.DSSKeyHandler;
 import dynamicswordskills.entity.DSSPlayerInfo;
 import dynamicswordskills.network.PacketDispatcher;
@@ -16,12 +17,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.List;
 
 public class Deflect extends SkillFists {
 
@@ -185,5 +183,11 @@ public class Deflect extends SkillFists {
 			} // don't deactivate early, as there is a delay between uses
 		}
 		return false;
+	}
+
+	@Override
+	public boolean onRenderTick(EntityPlayer player, float partialTickTime) {
+
+		return super.onRenderTick(player, partialTickTime);
 	}
 }

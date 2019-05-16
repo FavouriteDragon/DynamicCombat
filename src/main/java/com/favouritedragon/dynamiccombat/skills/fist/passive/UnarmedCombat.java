@@ -40,12 +40,6 @@ public class UnarmedCombat extends AttackSkill implements ISkillToggle, ISkillTi
 		return 10;
 	}
 
-
-	@Override
-	public boolean hasRequirments(EntityLivingBase entity) {
-		return super.hasRequirments(entity);
-	}
-
 	@Override
 	public void onSkillRePurchase(EntityLivingBase entity) {
 		removeEntityModifier(entity, this);

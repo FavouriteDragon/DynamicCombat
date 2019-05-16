@@ -32,6 +32,9 @@ public class PlayerSkillData implements INBTSerializable<NBTTagCompound> {
 	//the player accidentally using skills and what not.
 	public boolean skillsActive;
 
+	//Stores the skills the player has and whether they're activated
+	private HashMap<Skill, Boolean> activatedSkills;
+
 	public PlayerSkillData() {
 		this(null); // Constructor for the registration method factory parameter
 	}
@@ -39,10 +42,23 @@ public class PlayerSkillData implements INBTSerializable<NBTTagCompound> {
 	public PlayerSkillData(EntityPlayer player) {
 		this.player = player;
 		this.skillsActive = false;
+		this.activatedSkills = new HashMap<>();;
 	}
 
 	public static final PlayerSkillData get(EntityPlayer player) {
 		return player.getCapability(PLAYER_SKILL_DATA_CAPABILITY, null);
+	}
+
+	public void addSkill(Skill skill){
+		this.activatedSkills.put(skill, true);
+	}
+
+	public void setSkillActive(Skill skill, boolean active) {
+		this.activatedSkills.put(skill, active);
+	}
+
+	public void setActivatedSkills(HashMap<Skill, Boolean> activatedSkills) {
+		this.activatedSkills = activatedSkills;
 	}
 
 	public void sync() {
@@ -108,6 +124,7 @@ public class PlayerSkillData implements INBTSerializable<NBTTagCompound> {
 	public NBTTagCompound serializeNBT() {
 		NBTTagCompound properties = new NBTTagCompound();
 		properties.setBoolean("skillsActive", this.skillsActive);
+		properties.setBoolean("activatedSkills", );
 		return properties;
 	}
 

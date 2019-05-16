@@ -1,47 +1,47 @@
 package com.favouritedragon.dynamiccombat.skills.fist.active;
 
 import com.favouritedragon.dynamiccombat.skills.AttackSkill;
-import net.minecraft.client.Minecraft;
+import com.favouritedragon.dynamiccombat.skills.fist.SkillMainFist;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraft.world.World;
 import zdoctor.skilltree.api.skills.SkillAttributeModifier;
-import zdoctor.skilltree.api.skills.interfaces.ISkillStackable;
-import zdoctor.skilltree.api.skills.interfaces.ISkillTickable;
 import zdoctor.skilltree.api.skills.interfaces.ISkillToggle;
 import zdoctor.skilltree.skills.SkillBase;
-import zdoctor.skilltree.skills.SkillSlot;
 
 import javax.annotation.Nullable;
 
-public class PowerStrike extends AttackSkill implements ISkillToggle, ISkillTickable, ISkillStackable {
-	public PowerStrike(String name, Item icon) {
-		super(name, icon);
+public class PowerStrike extends SkillMainFist implements ISkillToggle {
+
+
+	protected PowerStrike(String name) {
+		super(name);
 	}
 
-	public PowerStrike(String name, ItemStack icon) {
-		super(name, icon);
-	}
-
-	@Nullable
 	@Override
-	public SkillAttributeModifier getModifier(EntityLivingBase entity, SkillBase skill) {
+	public boolean isActive() {
+		return false;
+	}
+
+	@Override
+	protected float getExhaustion() {
+		return 0;
+	}
+
+	@Override
+	protected boolean onActivated(World world, EntityPlayer player) {
+		return false;
+	}
+
+	@Override
+	protected void onDeactivated(World world, EntityPlayer player) {
+
+	}
+
+	@Override
+	public dynamicswordskills.skills.SkillBase newInstance() {
 		return null;
-	}
-
-	@Override
-	public void onSkillRePurchase(EntityLivingBase entity) {
-
-	}
-
-	@Override
-	public int getMaxTier(EntityLivingBase entity) {
-		return 3;
-	}
-
-	@Override
-	public void onActiveTick(EntityLivingBase entity, SkillBase skill, SkillSlot skillSlot) {
-
 	}
 }

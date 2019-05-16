@@ -1,6 +1,10 @@
 package com.favouritedragon.dynamiccombat;
 
 import com.favouritedragon.dynamiccombat.proxy.IProxy;
+import net.minecraft.nbt.NBTBase;
+import net.minecraft.util.EnumFacing;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -36,6 +40,21 @@ public class DynamicCombat
         proxy.preInit(event);
         proxy.registerRender();
         RegistryHandler.registerAll();
+        CapabilityManager.INSTANCE.register(PlayerSkillData.class, new Capability.IStorage<PlayerSkillData>(){
+            // These methods are only called by Capability.writeNBT() or Capability.readNBT(), which in turn are
+            // NEVER CALLED. Unless I'm missing some reflective invocation, that means this entire class serves only
+            // to allow capabilities to be saved and loaded manually. What that would be useful for I don't know.
+            // (If an API forces most users to write redundant code for no reason, it's not user friendly, is it?)
+            // ... well, that's my rant for today!
+            @Override
+            public NBTBase writeNBT(Capability<PlayerSkillData> capability, PlayerSkillData instance, EnumFacing side){
+                return null;
+            }
+
+            @Override
+            public void readNBT(Capability<PlayerSkillData> capability, PlayerSkillData instance, EnumFacing side, NBTBase nbt){
+            }
+        }, PlayerSkillData::new);
     }
 
     @EventHandler

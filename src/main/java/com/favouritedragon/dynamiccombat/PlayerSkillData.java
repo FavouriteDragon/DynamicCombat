@@ -89,7 +89,7 @@ public class PlayerSkillData implements INBTSerializable<NBTTagCompound> {
 	@SubscribeEvent
 	public static void onEntityJoinWorld(EntityJoinWorldEvent event) {
 		if (!event.getEntity().world.isRemote && event.getEntity() instanceof EntityPlayerMP) {
-			// Synchronises wizard data after loading.
+			// Synchronises data after loading.
 			PlayerSkillData data = PlayerSkillData.get((EntityPlayer) event.getEntity());
 			if (data != null) data.sync();
 		}

@@ -7,10 +7,12 @@
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
+  "authorList": ["FavouriteDragon"],
   "credits": "The Forge and FML guys, for making this example",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": ["dynamicswordskills", "skilltree"],
+  "requiredMods": [ "dynamicswordskills", "skilltree"],
+  "useDependencyInformation": "true"
 }
 ]

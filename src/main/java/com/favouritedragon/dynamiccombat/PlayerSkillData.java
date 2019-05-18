@@ -124,7 +124,7 @@ public class PlayerSkillData implements INBTSerializable<NBTTagCompound> {
 	public NBTTagCompound serializeNBT() {
 		NBTTagCompound properties = new NBTTagCompound();
 		properties.setBoolean("skillsActive", this.skillsActive);
-		properties.setBoolean("activatedSkills", );
+	//	properties.setBoolean("activatedSkills", );
 		return properties;
 	}
 

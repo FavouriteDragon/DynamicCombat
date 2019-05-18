@@ -15,7 +15,7 @@ import org.apache.logging.log4j.Logger;
 import zdoctor.skilltree.api.SkillTreeApi;
 
 
-@Mod(modid = DynamicCombat.MODID, name = DynamicCombat.NAME, version = DynamicCombat.VERSION, dependencies="required-after:dynamicswordskills;required-after:skilltree")
+@Mod(modid = DynamicCombat.MODID, name = DynamicCombat.NAME, version = DynamicCombat.VERSION, dependencies="required-before:dynamicswordskills;required-after:skilltree")
 public class DynamicCombat
 {
     public static final String MODID = "dynamic_combat";

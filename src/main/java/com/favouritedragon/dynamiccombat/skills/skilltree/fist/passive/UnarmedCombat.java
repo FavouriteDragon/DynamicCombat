@@ -1,6 +1,6 @@
-package com.favouritedragon.dynamiccombat.skills.fist.passive;
+package com.favouritedragon.dynamiccombat.skills.skilltree.fist.passive;
 
-import com.favouritedragon.dynamiccombat.skills.AttackSkill;
+import com.favouritedragon.dynamiccombat.skills.skilltree.AttackSkill;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.init.Items;
@@ -8,7 +8,6 @@ import net.minecraft.item.ItemStack;
 import zdoctor.skilltree.api.SkillTreeApi;
 import zdoctor.skilltree.api.enums.SkillFrameType;
 import zdoctor.skilltree.api.skills.SkillAttributeModifier;
-import zdoctor.skilltree.api.skills.interfaces.ISkillRequirment;
 import zdoctor.skilltree.api.skills.interfaces.ISkillStackable;
 import zdoctor.skilltree.api.skills.interfaces.ISkillTickable;
 import zdoctor.skilltree.api.skills.interfaces.ISkillToggle;
@@ -17,9 +16,6 @@ import zdoctor.skilltree.api.skills.requirements.SkillPointRequirement;
 import zdoctor.skilltree.skills.SkillBase;
 import zdoctor.skilltree.skills.SkillSlot;
 import zdoctor.skilltree.tabs.SkillTabs;
-
-import java.util.Collections;
-import java.util.List;
 
 public class UnarmedCombat extends AttackSkill implements ISkillToggle, ISkillTickable, ISkillStackable {
 	public static final String ATTRIBUTE_NAME = "attackSkill.unarmedCombat";

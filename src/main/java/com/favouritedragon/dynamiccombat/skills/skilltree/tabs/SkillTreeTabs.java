@@ -1,4 +1,4 @@
-package com.favouritedragon.dynamiccombat.skills.tabs;
+package com.favouritedragon.dynamiccombat.skills.skilltree.tabs;
 
 import com.favouritedragon.dynamiccombat.skills.pages.fist.FistSkillPage;
 import net.minecraft.init.Items;

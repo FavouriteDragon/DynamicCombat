@@ -1,6 +1,6 @@
 package com.favouritedragon.dynamiccombat.skills.pages.fist;
 
-import com.favouritedragon.dynamiccombat.skills.fist.passive.UnarmedCombat;
+import com.favouritedragon.dynamiccombat.skills.skilltree.fist.passive.UnarmedCombat;
 import zdoctor.skilltree.skills.pages.SkillPageBase;
 
 public class FistSkillPage extends SkillPageBase {

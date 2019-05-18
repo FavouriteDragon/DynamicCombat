@@ -40,7 +40,7 @@ public class DynamicCombat
         proxy.preInit(event);
         proxy.registerRender();
         RegistryHandler.registerAll();
-        CapabilityManager.INSTANCE.register(PlayerSkillData.class, new Capability.IStorage<PlayerSkillData>(){
+        /*CapabilityManager.INSTANCE.register(PlayerSkillData.class, new Capability.IStorage<PlayerSkillData>(){
             // These methods are only called by Capability.writeNBT() or Capability.readNBT(), which in turn are
             // NEVER CALLED. Unless I'm missing some reflective invocation, that means this entire class serves only
             // to allow capabilities to be saved and loaded manually. What that would be useful for I don't know.
@@ -54,7 +54,7 @@ public class DynamicCombat
             @Override
             public void readNBT(Capability<PlayerSkillData> capability, PlayerSkillData instance, EnumFacing side, NBTBase nbt){
             }
-        }, PlayerSkillData::new);
+        }, PlayerSkillData::new);**/
     }
 
     @EventHandler

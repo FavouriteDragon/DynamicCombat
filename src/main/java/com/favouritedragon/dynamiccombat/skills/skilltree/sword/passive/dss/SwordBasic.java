@@ -1,4 +1,4 @@
-package com.favouritedragon.dynamiccombat.skills.sword.passive.dss;
+package com.favouritedragon.dynamiccombat.skills.skilltree.sword.passive.dss;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -6,7 +6,6 @@ import zdoctor.skilltree.api.enums.SkillFrameType;
 import zdoctor.skilltree.api.skills.Skill;
 import zdoctor.skilltree.api.skills.interfaces.ISkillRequirment;
 import zdoctor.skilltree.api.skills.interfaces.ISkillToggle;
-import zdoctor.skilltree.skills.ISkillListener;
 
 public class SwordBasic extends Skill implements ISkillToggle {
 	public SwordBasic(String name, Item iconIn) {

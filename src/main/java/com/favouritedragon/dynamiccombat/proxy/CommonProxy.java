@@ -1,6 +1,6 @@
 package com.favouritedragon.dynamiccombat.proxy;
 
-import com.favouritedragon.dynamiccombat.skills.tabs.SkillTreeTabs;
+import com.favouritedragon.dynamiccombat.skills.skilltree.tabs.SkillTreeTabs;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

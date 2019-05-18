@@ -1,4 +1,4 @@
-package com.favouritedragon.dynamiccombat.skills;
+package com.favouritedragon.dynamiccombat.skills.skilltree;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttribute;

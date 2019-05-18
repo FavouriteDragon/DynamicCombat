@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import zdoctor.skilltree.api.SkillTreeApi;
 import zdoctor.skilltree.api.enums.SkillFrameType;
 import zdoctor.skilltree.api.skills.SkillAttributeModifier;
+import zdoctor.skilltree.api.skills.interfaces.ISkillRequirment;
 import zdoctor.skilltree.api.skills.interfaces.ISkillStackable;
 import zdoctor.skilltree.api.skills.interfaces.ISkillTickable;
 import zdoctor.skilltree.api.skills.interfaces.ISkillToggle;
@@ -16,6 +17,9 @@ import zdoctor.skilltree.api.skills.requirements.SkillPointRequirement;
 import zdoctor.skilltree.skills.SkillBase;
 import zdoctor.skilltree.skills.SkillSlot;
 import zdoctor.skilltree.tabs.SkillTabs;
+
+import java.util.Collections;
+import java.util.List;
 
 public class UnarmedCombat extends AttackSkill implements ISkillToggle, ISkillTickable, ISkillStackable {
 	public static final String ATTRIBUTE_NAME = "attackSkill.unarmedCombat";
@@ -27,7 +31,7 @@ public class UnarmedCombat extends AttackSkill implements ISkillToggle, ISkillTi
 		UNARMED_COMBAT = new SkillAttributeModifier(ATTRIBUTE_NAME, 0, 0);
 		setFrameType(SkillFrameType.NORMAL);
 		addRequirement(new LevelRequirement(TIER - 1));
-		addRequirement(new SkillPointRequirement(TIER - 1));
+		addRequirement(new SkillPointRequirement(2));
 
 	}
 
@@ -73,6 +77,14 @@ public class UnarmedCombat extends AttackSkill implements ISkillToggle, ISkillTi
 			modifyEntity(entity, skill);
 	}
 
+	@Override
+	public List<ISkillRequirment> getRequirments(EntityLivingBase entity, boolean hasSkill) {
+		if (hasSkill) {
+			return Collections.singletonList(new LevelRequirement(TIER - 1));
+		} else {
+			return Collections.EMPTY_LIST;
+		}
+	}
 
 	@Override
 	public SkillAttributeModifier getModifier(EntityLivingBase entity, SkillBase skill) {

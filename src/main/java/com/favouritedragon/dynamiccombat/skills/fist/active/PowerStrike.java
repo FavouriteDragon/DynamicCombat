@@ -1,15 +1,11 @@
 package com.favouritedragon.dynamiccombat.skills.fist.active;
 
-import com.favouritedragon.dynamiccombat.skills.AttackSkill;
-import com.favouritedragon.dynamiccombat.skills.fist.SkillMainFist;
-import com.favouritedragon.dynamiccombat.skills.fist.passive.UnarmedCombat;
+import com.favouritedragon.dynamiccombat.skills.skilltree.AttackSkill;
+import com.favouritedragon.dynamiccombat.skills.skilltree.fist.passive.UnarmedCombat;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import zdoctor.skilltree.api.SkillTreeApi;
 import zdoctor.skilltree.api.enums.SkillFrameType;
 import zdoctor.skilltree.api.skills.SkillAttributeModifier;
@@ -22,8 +18,6 @@ import zdoctor.skilltree.api.skills.requirements.SkillPointRequirement;
 import zdoctor.skilltree.skills.SkillBase;
 import zdoctor.skilltree.skills.SkillSlot;
 import zdoctor.skilltree.tabs.SkillTabs;
-
-import javax.annotation.Nullable;
 
 public class PowerStrike extends AttackSkill implements ISkillToggle, ISkillTickable, ISkillStackable {
 	public static final String ATTRIBUTE_NAME = "attackSkill.powerStrike";

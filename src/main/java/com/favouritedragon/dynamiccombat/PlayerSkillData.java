@@ -21,7 +21,7 @@ import zdoctor.skilltree.api.skills.Skill;
 import java.util.HashMap;
 
 @Mod.EventBusSubscriber(modid = DynamicCombat.MODID)
-public class PlayerSkillData implements INBTSerializable<NBTTagCompound> {
+public class PlayerSkillData {/*implements INBTSerializable<NBTTagCompound> {
 
 	@CapabilityInject(PlayerSkillData.class)
 	private static final Capability<PlayerSkillData> PLAYER_SKILL_DATA_CAPABILITY = null;
@@ -169,7 +169,7 @@ public class PlayerSkillData implements INBTSerializable<NBTTagCompound> {
 			data.deserializeNBT(nbt);
 		}
 
-	}
+	}**/
 
 
 }

@@ -1,6 +1,6 @@
 package com.favouritedragon.dynamiccombat.skills.fist.active;
 
-import com.favouritedragon.dynamiccombat.skills.fist.SkillFists;
+import com.favouritedragon.dynamiccombat.skills.active.fist.SkillFists;
 import dynamicswordskills.client.DSSKeyHandler;
 import dynamicswordskills.network.PacketDispatcher;
 import dynamicswordskills.network.bidirectional.ActivateSkillPacket;

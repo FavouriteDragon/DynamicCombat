@@ -17,9 +17,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class Deflect extends SkillFists {
 
@@ -57,7 +60,7 @@ public class Deflect extends SkillFists {
 		return new Deflect(this);
 	}
 
-	/*@Override
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(List<String> desc, EntityPlayer player) {
 		desc.add(new TextComponentTranslation(getInfoString("info", 1), (int) (getDisarmChance(player, null) * 100)).getUnformattedText());
@@ -65,7 +68,7 @@ public class Deflect extends SkillFists {
 		desc.add(new TextComponentTranslation(getInfoString("info", 3), getMaxDeflects()).getUnformattedText());
 		desc.add(getTimeLimitDisplay(getActiveTime() - getDeflectDelay()));
 		desc.add(getExhaustionDisplay(getExhaustion()));
-	}**/
+	}
 
 	@Override
 	public boolean isActive() {
@@ -129,12 +132,14 @@ public class Deflect extends SkillFists {
 				if (ticksTilFail > 0) {
 					PacketDispatcher.sendToServer(new ActivateSkillPacket(this));
 					ticksTilFail = 0;
+					player.swingArm(EnumHand.MAIN_HAND);
 					return true;
 				} else {
 					ticksTilFail = 6;
 				}
 			} else if (key != mc.gameSettings.keyBindBack) { // activate on first press, but not for vanilla key!
 				PacketDispatcher.sendToServer(new ActivateSkillPacket(this));
+				player.swingArm(EnumHand.MAIN_HAND);
 				return true;
 			}
 		}
@@ -176,6 +181,7 @@ public class Deflect extends SkillFists {
 					PlayerUtils.dropHeldItem(attacker);
 				}
 				++attacksDeflected; // increment after disarm
+				player.swingArm(EnumHand.MAIN_HAND);
 				PlayerUtils.playSoundAtEntity(player.getEntityWorld(), player, ModSounds.SWORD_STRIKE, SoundCategory.PLAYERS, 0.4F, 0.5F);
 				playMissSound = false;
 				TargetUtils.knockTargetBack(attacker, player);
@@ -185,9 +191,5 @@ public class Deflect extends SkillFists {
 		return false;
 	}
 
-	@Override
-	public boolean onRenderTick(EntityPlayer player, float partialTickTime) {
 
-		return super.onRenderTick(player, partialTickTime);
-	}
 }

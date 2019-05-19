@@ -1,11 +1,9 @@
-package com.favouritedragon.dynamiccombat.skills.fist;
+package com.favouritedragon.dynamiccombat.skills.active.fist;
 
 import dynamicswordskills.skills.SkillActive;
-import dynamicswordskills.skills.SkillBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
-import net.minecraft.world.World;
 
 public abstract class SkillFists extends SkillActive {
 
@@ -19,6 +17,6 @@ public abstract class SkillFists extends SkillActive {
 
 	@Override
 	public boolean canUse(EntityPlayer player) {
-		return super.canUse(player) && player.getHeldItem(EnumHand.MAIN_HAND) == ItemStack.EMPTY && player.getHeldItem(EnumHand.OFF_HAND) == ItemStack.EMPTY;
+		return super.canUse(player) && player.getHeldItem(EnumHand.MAIN_HAND) == ItemStack.EMPTY && player.getHeldItem(EnumHand.OFF_HAND) == ItemStack.EMPTY && !isActive();
 	}
 }

@@ -1,6 +1,6 @@
 package com.favouritedragon.dynamiccombat;
 
-import com.favouritedragon.dynamiccombat.skills.fist.active.Deflect;
+import com.favouritedragon.dynamiccombat.skills.active.fist.active.Deflect;
 import dynamicswordskills.skills.SkillBase;
 import net.minecraft.entity.player.EntityPlayer;
 

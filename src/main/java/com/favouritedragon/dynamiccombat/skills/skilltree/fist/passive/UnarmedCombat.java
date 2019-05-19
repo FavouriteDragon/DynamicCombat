@@ -91,5 +91,9 @@ public class UnarmedCombat extends AttackSkill implements ISkillToggle, ISkillTi
 		return UNARMED_COMBAT;
 	}
 
+	@Override
+	public boolean shouldDrawLineToChildren() {
+		return super.shouldDrawLineToChildren();
+	}
 }
 

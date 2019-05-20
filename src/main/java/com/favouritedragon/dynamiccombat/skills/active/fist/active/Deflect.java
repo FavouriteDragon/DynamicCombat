@@ -1,6 +1,6 @@
-package com.favouritedragon.dynamiccombat.skills.fist.active;
+package com.favouritedragon.dynamiccombat.skills.active.fist.active;
 
-import com.favouritedragon.dynamiccombat.skills.fist.SkillFists;
+import com.favouritedragon.dynamiccombat.skills.active.fist.SkillFists;
 import dynamicswordskills.client.DSSKeyHandler;
 import dynamicswordskills.entity.DSSPlayerInfo;
 import dynamicswordskills.network.PacketDispatcher;
@@ -190,6 +190,5 @@ public class Deflect extends SkillFists {
 		}
 		return false;
 	}
-
 
 }
